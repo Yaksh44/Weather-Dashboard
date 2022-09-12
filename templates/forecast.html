@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 class=header>Weather Forecast</h1>
+    <form action="{{ url_for('forecast') }}" method=post>
+        <input type=text action="." name=forecast required placeholder="Enter the city name">
+	<p><input type=submit value=Search></p>
+    </form>
+<hr>
+    <h2 class="header-result">Results</h2>
+<div id="entries">
+    <p class=header-city><b>City</b> : {{name}}
+    {% for entry in entries %}
+        <div class=entry>
+            <table>
+                <tr>
+                    <td><span>Humidity: </span></td>
+                    <td class="right">{{entry.humidity}}</td>
+                </tr>
+                <tr>
+                    <td><span>Average temprature: </span></td>
+                    <td class="right">{{entry.average_temp}}</td>
+                </tr>
+                <tr>
+                    <td><span>Average maximum temprature: </span></td>
+                    <td class="right">{{entry.average_temp_max}}</td>
+                </tr>
+                <tr>
+                    <td><span>Average minimum temprature: </span></td>
+                    <td class="right">{{entry.average_temp_min}}</td>
+                </tr>
+                <tr>
+                    <td><span>Average Record Maximum Temprature: </span></td>
+                    <td class="right">{{entry.average_temp_recordmax}}</td>
+                </tr>
+                <tr>
+                    <td><span>Average Record Minimum Temprature: </span></td>
+                    <td class="right">{{entry.average_temp_recordmin}}</td>
+                </tr>
+                <tr>
+                    <td><span>Windspeed: </span></td>
+                    <td class="right">{{entry.wind_speed}}</td>
+                </tr>
+            </table>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

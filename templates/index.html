@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="background-image: url('26383.jpg');">
+    <h1 class=header>Welcome to Weather Dashboard</h1>
+    <h3 class=header>See the current weather for any city <a href="{{ url_for('current_weather') }}">here</a></h3>
+    <h3 class=header>See the weather forecast <a href="{{ url_for('forecast') }}">here</a></h3>
+</div>
+{% endblock %}
